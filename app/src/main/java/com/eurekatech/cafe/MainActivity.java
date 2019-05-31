@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+   // Declaracion de variables
     Integer cant=0;
     Integer precio=2;
     TextView resultado;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
        cb=findViewById(R.id.cbAutomatico);
 
     }
-
+// funcion que llama a metodo automatico o manual segun vista checked es verdadera o falsa
     public void PrecioTotal(View v) {
 
         if(cb.isChecked()){
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+//calculos automaticos del precio total
     void automatico(){
 
 
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         resultado.setText(precioTotal.toString());
     }
 
+    //calculo manual del precio total
     void manual(){
 
 
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         resultado.setText(precioTotal.toString());
     }
 
+    // funcion que cambia la visibilidad de textview segun checked sea verdadero o falso
         public void   cambiarText(View v){
 
         if(cb.isChecked()){
@@ -85,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
  }
-
+//pone las vistas a su valor iniciar
  void limpiar(){
         cantidadEditable.setHint("0");
         cantidad.setText("0");
