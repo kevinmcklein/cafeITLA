@@ -6,6 +6,7 @@
     <string name="preciototal">Precio Total:</string>
     <string name="preciototalResultado">0</string>
     <string name="agregar">AGREGAR</string>
+    <string name="automatico">Automático</string>
 
 
 </resources>
