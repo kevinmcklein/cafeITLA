@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Cafe ITLA</string>
+    <string name="hint">Digite su nombre</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="cantidadcafe">0</string>
+    <string name="preciototal">Precio Total:</string>
+    <string name="preciototalResultado">0</string>
+    <string name="agregar">AGREGAR</string>
+
+
+</resources>
