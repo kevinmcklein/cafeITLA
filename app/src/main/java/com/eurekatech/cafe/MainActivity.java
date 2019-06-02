@@ -1,8 +1,12 @@
 package com.eurekatech.cafe;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,6 +29,20 @@ public class MainActivity extends AppCompatActivity {
         cantidadEditable=findViewById(R.id.txtCantidadCafeEditable);
        cb=findViewById(R.id.cbAutomatico);
 
+       eventoTeclado teclado=new eventoTeclado();
+       cantidadEditable.setOnEditorActionListener(teclado);
+
+    }
+
+    class eventoTeclado implements  TextView.OnEditorActionListener{
+
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (actionId== EditorInfo.IME_ACTION_DONE){
+                manual();
+            }
+            return false;
+        }
     }
 // funcion que llama a metodo automatico o manual segun vista checked es verdadera o falsa
     public void PrecioTotal(View v) {
@@ -39,7 +57,9 @@ public class MainActivity extends AppCompatActivity {
             manual();
 
         }
-
+        //ocultar teclado
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(cantidad.getWindowToken(), 0);
 
     }
 //calculos automaticos del precio total
@@ -90,11 +110,15 @@ public class MainActivity extends AppCompatActivity {
  }
 //pone las vistas a su valor iniciar
  void limpiar(){
+     cantidadEditable.setText("");
         cantidadEditable.setHint("0");
         cantidad.setText("0");
         cant=0;
         resultado.setText("0");
+
  }
+
+
 
 }
 //hasta aqui el codigo
